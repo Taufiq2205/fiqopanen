@@ -10,7 +10,7 @@
     <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
       <div class="col-xl-6 col-lg-8">
         <h3>MENGHUBUNGKAN PETANI KE PASAR, DENGAN BAIK.</h3>
-        <h>“Karena Setiap Panen Layak Mendapatkan Nila Terbaik.”</h>
+        <h>“Karena Setiap Panen Layak Mendapatkan Nilai Terbaik Sekali.”</h>
       </div>
     </div>
 
