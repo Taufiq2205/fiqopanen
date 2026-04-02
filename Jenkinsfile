@@ -28,17 +28,22 @@ node {
     }
 
     // Deploy env prod
-   stage("Deploy"){
-    docker.image('alpine').inside('-u root') {
-        sh '''
-        apk add --no-cache rsync openssh
-        '''
+   stage("Deploy") {
+    steps {
+        script {
+            docker.image('alpine').inside('-u root') {
+                sh '''
+                apk add --no-cache rsync openssh
+                '''
 
-        sshagent(['ssh-prod']) {
-            sh '''
-            rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@172.25.99.119:/home/ubuntu/laravel-app
-            '''
+                sshagent(['ssh-prod']) {
+                    sh '''
+                    rsync -avz --exclude='.git' -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@172.25.99.119:/home/ubuntu/laravel-app
+                    '''
+                }
+            }
         }
     }
 }
-}
+
+
